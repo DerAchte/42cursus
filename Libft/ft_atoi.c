@@ -6,7 +6,7 @@
 /*   By: thdervil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 15:04:00 by thdervil          #+#    #+#             */
-/*   Updated: 2018/11/22 18:46:25 by thdervil         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:40:19 by thdervil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,5 @@ int	ft_atoi(const char *str)
 		res = res * 10 + str[i] - 48;
 		i++;
 	}
-	res *= neg;
-	if (res > 2147483647)
-		return (-1);
-	else if (res < -2147483648)
-		return (0);
-	else
-		return (res);
-}
-
-int	main()
-{
-	char n[40] = "99999999999999999999999999";
-        int i1 = atoi(n);
-        int i2 = ft_atoi(n);
-
-	printf("%d\n%d\n", i1, i2);
+	return (res * neg);
 }

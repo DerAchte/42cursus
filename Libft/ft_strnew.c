@@ -6,7 +6,7 @@
 /*   By: thdervil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 16:04:05 by thdervil          #+#    #+#             */
-/*   Updated: 2018/11/22 17:38:41 by thdervil         ###   ########.fr       */
+/*   Updated: 2018/11/29 15:35:08 by thdervil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnew(size_t size)
 	i = 0;
 	if ((result = (char*)malloc(sizeof(char) * size + 1)) == NULL)
 		return (NULL);
-	while (i <= size)
-		result[++i] = '\0';
+	while (i < size + 1)
+		result[i++] = 0;
 	return (result);
 }
