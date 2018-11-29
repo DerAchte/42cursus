@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int neg;
-	int res;
+	int	i;
+	int	neg;
+	int	res;
 
 	i = 0;
 	neg = 1;
@@ -31,5 +31,20 @@ int		ft_atoi(const char *str)
 		res = res * 10 + str[i] - 48;
 		i++;
 	}
-	return (res * neg);
+	res *= neg;
+	if (res > 2147483647)
+		return (-1);
+	else if (res < -2147483648)
+		return (0);
+	else
+		return (res);
+}
+
+int	main()
+{
+	char n[40] = "99999999999999999999999999";
+        int i1 = atoi(n);
+        int i2 = ft_atoi(n);
+
+	printf("%d\n%d\n", i1, i2);
 }
