@@ -6,7 +6,7 @@
 #    By: thdervil <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 14:10:04 by thdervil          #+#    #+#              #
-#    Updated: 2018/11/24 15:06:56 by thdervil         ###   ########.fr        #
+#    Updated: 2018/12/01 21:20:04 by thdervil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,13 @@ SRC = ft_atoi.c\
 	  ft_toupper.c\
 	  ft_count_words.c\
 	  ft_skipchar_countwords.c\
-	  ft_skipchar.c
+	  ft_skipchar.c\
+	  ft_lstadd.c\
+	  ft_lstdel.c\
+	  ft_lstdelone.c\
+	  ft_lstiter.c\
+	  ft_lstmap.c\
+	  ft_lstnew.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thdervil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 13:49:33 by thdervil          #+#    #+#             */
-/*   Updated: 2018/11/30 14:30:10 by thdervil         ###   ########.fr       */
+/*   Created: 2018/12/01 17:18:11 by thdervil          #+#    #+#             */
+/*   Updated: 2018/12/01 18:40:46 by thdervil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int		i;
-	size_t	size;
+	t_list	*cur_lst;
 
-	i = 0;
-	if (!needle[i] && !haystack[i])
-		return ((char*)haystack);
-	size = ft_strlen(needle);
-	while (haystack[i])
+	cur_lst = *alst;
+	while (*alst)
 	{
-		if (ft_strncmp(&haystack[i], needle, size) == 0)
-			return (&((char*)haystack)[i]);
-		i++;
+		*alst = (*alst)->next;
+		ft_lstdelone(&cur_lst, del);
+		cur_lst = *alst;
 	}
-	return (NULL);
+	*alst = NULL;
 }

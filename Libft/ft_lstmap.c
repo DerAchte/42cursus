@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thdervil <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 13:49:33 by thdervil          #+#    #+#             */
-/*   Updated: 2018/11/30 14:30:10 by thdervil         ###   ########.fr       */
+/*   Created: 2018/12/01 19:54:09 by thdervil          #+#    #+#             */
+/*   Updated: 2018/12/01 21:22:24 by thdervil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	int		i;
-	size_t	size;
+	t_list	*result;
+	t_list	*buf_lst;
 
+	buf_lst = lst;
 	i = 0;
-	if (!needle[i] && !haystack[i])
-		return ((char*)haystack);
-	size = ft_strlen(needle);
-	while (haystack[i])
+	while (lst->next != NULL)
 	{
-		if (ft_strncmp(&haystack[i], needle, size) == 0)
-			return (&((char*)haystack)[i]);
+		f(lst);
+		lst = lst->next;
 		i++;
 	}
-	return (NULL);
+	if (!(result = (t_list*)malloc(sizeof(t_list) * i + 1)))
+		return (NULL);
+	result = lst;
+	return (result);
 }
